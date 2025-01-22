@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="styles.css" rel="stylesheet">
+		<title>Modern Clock</title>
+
+		<!-- Link for icons like GitHub, LinkedIn -->
+		<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+
+
+	</head>
+	<body>
+		<div class="container">
+			<!--<div class="user-icon"><i class='bx bxs-user-circle'></i></div>-->
+			
+			<div class="clock">
+				<div class="hand hr" data-hour-hand></div>
+				<div class="hand min" data-minute-hand></div>
+				<div class="hand sec" data-second-hand></div>
+				<div class="number number1">1</div>
+				<div class="number number2">2</div>
+				<div class="number number3">3</div>
+				<div class="number number4">4</div>
+				<div class="number number5">5</div>
+				<div class="number number6">6</div>
+				<div class="number number7">7</div>
+					
+				<div class="number number8">8</div>
+				<div class="number number9">9</div>
+				<div class="number number10">10</div>
+				<div class="number number11">11</div>
+				<div class="number number12">12</div>
+			</div>	
+			
+			<div class="alarm">
+				<!-- Alarm Input --> 
+				<input type="time" id="alarmTime" class="alarm-input"> 
+				<div class="buttons">
+					<button id="setAlarmButton" class="alarm-button">Set Alarm</button> 
+					<button id="snoozeButton" class="alarm-button" >Snooze</button> <!-- snooze button -->
+				</div>
+				
+				<!-- Add a sound --> 
+				<audio id="alarmSound" src="assets/alarm-tune.mp3" preload="auto"></audio>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<p>
+			   <span>Made with ❤️ by Subhasmita | </span>
+			   <a href="https://github.com/subhasmitas02/"><i class="bx bxl-github"></i></a>
+			   <a href="https://www.linkedin.com/in/subhasmita867544/"><i class="bx bxl-linkedin"></i></a>
+			</p>
+			
+		</div>
+		
+		<script defer src="script.js"></script>
+	</body>
+</html>

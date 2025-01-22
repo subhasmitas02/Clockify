@@ -1,0 +1,463 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	
+}
+
+body {
+	background: linear-gradient(to right, hsl(323, 100%, 5%), hsl(263, 74%, 44%));
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	overflow: hidden; 
+	flex-direction: column;
+}
+
+.container{
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: -10px;
+	padding: 20px;
+	gap: 80px;
+}
+.user-icon{
+	margin-left: 1480px;
+}
+
+.user-icon .bx{
+	font-size: 2.5rem;
+	margin-top: -8px;
+	color:  rgb(142, 56, 228);
+	box-shadow: 0px 0px 80px rgba(173, 107, 243, 0.95);
+	transition: 0.2s;
+	text-shadow: 2px 2px 2px rgba(3, 4, 4.5, 0.6);
+	cursor: pointer;
+	
+}
+
+.user-icon .bx:hover {
+	color: lightpink;
+	transform: scale(1.45);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.clock {
+	margin-top: 14px;
+	position: relative;
+	height: 550px;
+	width: 550px;
+	min-height: 550px;
+	min-width: 550px;
+	background-color: rgba(25, 0, 26, 0.8);
+	border-radius: 50%;
+	border: 6px rgba(84, 30, 231, 0.95) ;/*rgba(84, 30, 231, 0.95);  rgba(105, 7, 209, 0.95)  rgba(111, 63, 246, 0.95)*/
+	border-style: solid;
+	box-shadow: 0px 0px 80px rgba(173, 107, 243, 0.95);
+	font-family: Gotham Rounded, sans-serif;
+
+	background-image: url('assets/images/minnie\ 2.png') ;
+	background-size: 40% 40%;
+	background-repeat: no-repeat; /* Prevents repetition */
+  	background-position:center;
+	width: 80px;|
+	border-radius:50px;
+
+}
+
+.clock::before {
+	content: "";
+	position: absolute;
+	top: 10;
+	left: 10;
+	right: 0;
+	bottom: 0;
+	background: inherit;
+	opacity: 0.35; /* Adjust opacity */
+	z-index: -1; /* Make sure the pseudo-element is behind the content */
+  }
+
+.clock .number {
+	--rotation: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transform: rotate(var(--rotation));
+	font-size: 3rem;
+	padding: 20px;
+	font-weight: bold;
+	color: rgb(182, 150, 204);
+	font-family: Gotham Rounded, sans-serif;
+}
+
+.clock .bar_item {
+	--rotation: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transform: rotate(var(--rotation));
+	font-size: 1rem;
+	padding: 5px;
+	color: rgba(238, 235, 243, 0.466);
+	font-family: Gotham Rounded, sans-serif;
+}
+
+.clock .hand {
+	--rotation: 0;
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	border: 1px solid rgb(248, 245, 248, 0.8);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transform-origin: bottom;
+	z-index: 10;
+	transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+	box-shadow: 0px 0px 10px rgba(91, 48, 209, 0.95);
+}
+
+.clock:after {
+	content: '';
+	position: absolute;
+	background-color: rgb(32, 0, 29);
+	border-color: rgb(248, 245, 248);
+	box-shadow: 0px 0px 10px rgb(148, 7, 241);
+	border-width: 2px;
+	border-style: solid;
+	z-index: 11;
+	width: 15px;
+	height: 15px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
+
+.clock .hand.sec {
+	width: 2.5px;
+	height: 39%;
+	background-color: rgb(97, 48, 229);
+	box-shadow: 0px 0px 10px rgb(148, 7, 241);/* rgb(111, 57, 211);*/
+	border: 1.5px solid rgb(77, 32, 201);
+}
+
+.clock .hand.min {
+	width: 7px;
+	height: 37%;
+	background-color: rgb(97, 48, 229);
+	border: 1.5px solid rgb(248, 245, 248);
+	box-shadow: 0px 0px 8px rgb(148, 7, 241, 0.8);/* rgb(111, 57, 211, 0.8);*/
+}
+
+.clock .hand.hr {
+	width: 10px;
+	height: 25%;
+	background-color: rgb(97, 48, 229);
+	border: 1.5px solid rgb(248, 245, 248);
+	box-shadow: 0px 0px 8px rgb(148, 7, 241, 0.8);/* rgb(111, 57, 211, 0.8);*/
+}
+
+/*---------- alarm set ------------------------------------------*/
+
+.alarm{  /*---setting for alarm container ---*/
+	display: flex;
+	gap: 20px;
+	margin-left: 50px;
+}
+.alarm-input, .alarm-button { 
+	margin-top: 10px; 
+	padding: 5px; 
+	font-size: 14px; 
+	height: 40px;
+	width: auto;
+}
+
+.alarm-input{
+	border-radius: 8px;
+	background-color: rgb(217, 185, 233);
+	border: 2.5px solid rgba(45, 15, 128, 0.8);
+	box-shadow: 1px 1px 4px black;
+	font-size: 1.4rem;
+	padding: 15px; 
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: center;
+}
+.alarm-button {
+	border-radius: 10px;
+	width: auto;
+	border: 2.5px solid rgba(45, 15, 128, 0.8);
+	background-color: rgb(190, 112, 226);
+	box-shadow: 2px 2px 4px black;
+	font-weight: bold;
+	padding-left: 5px; 
+	padding-right: 5px; 
+}
+
+.alarm-button:hover {
+	box-shadow: 2px 2px 4px black;
+	transform: scale(1.05);
+	/* font-size: 0.95rem; */
+	cursor: pointer;
+}
+
+.alarm-button:hover::after {
+	display: flex;
+	transform: scale(1.00);
+}
+
+.buttons{
+	display: flex;
+	gap: 14px;
+}
+
+
+/*---------- footer ---------------------*/
+.footer{
+	margin-top: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer p{
+	font-size: 1.2rem;
+	color: rgb(227, 218, 235);
+}
+
+.footer p span{
+	font-size: 1.25rem;
+	color: rgb(227, 218, 235);
+	font-family: Gotham Rounded, sans-serif;
+}
+
+.footer a .bx {
+    font-size: 1.35rem;
+	color:  rgb(227, 218, 235);
+    transition: 0.2s;
+    margin-left: 5px;
+    text-shadow: 2px 2px 2px rgba(3, 4, 4.5, 0.4);
+	
+}
+
+.footer a .bx:hover{
+	transform: scale(1.45);
+    color: lightpink;
+    transition: 0.2s;
+	cursor: pointer;
+}
+
+/*-------------- adding responsiveness -----------------------------*/
+
+/*--- for laptop screens ----*/
+ @media (min-width: 1023px) {
+	body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20px;
+		margin-bottom: -38px;
+	}
+	.clock {
+		height: 540px;
+		width: 540px;
+		min-height: 500px;
+		min-width: 500px;
+	}
+	
+	.alarm{
+		margin-top: -20px;
+		margin-left: -5px; 
+	}
+} 
+/*bigger thn tablet screens and lesser thn laptop screens*/
+@media (min-width: 900px) and (max-width: 1023px) {
+	body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 60px;
+		margin-bottom: -38px;
+	}
+	.clock {
+		height: 420px;
+		width: 420px;
+		min-height: 400px;
+		min-width: 400px;
+	}
+	.clock .number {
+		font-size: 2.4rem;
+		padding: 14px;
+	}
+
+	.clock .bar_item {
+		font-size: 0.8rem;
+		padding: 5px;
+	}
+
+	/*.clock .hand.sec {
+		width: 2.5px;
+		height: 35%;
+		background-color: rgb(229, 209, 234);
+	}
+
+	.clock .hand.min {
+		width: 6px;
+		height: 35%;
+		background-color: rgb(97, 48, 229);
+		border: 1.5px solid rgb(248, 245, 248);
+	}
+
+	.clock .hand.hr {
+		width: 7px;
+		height: 25%;
+		background-color: rgb(97, 48, 229);
+		border: 1.5px solid rgb(248, 245, 248);
+	} */
+	.alarm{
+		margin-top: -20px;
+		margin-left: -18px;
+	}
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 899px) {
+	body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 50px;
+		margin-bottom: -38px;
+	}
+	.clock {
+		height: 400px;
+		width: 400px;
+		min-height: 350px;
+		min-width: 350px;
+	}
+	.clock .number {
+		font-size: 2.2rem;
+		padding: 14px;
+	}
+
+	.clock .bar_item {
+		font-size: 0.7rem;
+		padding: 5px;
+	}
+
+	.clock .hand.sec {
+		width: 2.5px;
+		height: 35%;
+		background-color: rgb(229, 209, 234);
+	}
+
+	.clock .hand.min {
+		width: 6px;
+		height: 35%;
+		background-color: rgb(97, 48, 229);
+		border: 1.5px solid rgb(248, 245, 248);
+	}
+
+	.clock .hand.hr {
+		width: 7px;
+		height: 25%;
+		background-color: rgb(97, 48, 229);
+		border: 1.5px solid rgb(248, 245, 248);
+	}
+	.alarm{
+		margin-top: -20px;
+		margin-left: -18px;
+	}
+}
+
+
+
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+	body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.container{
+		flex-direction: column;
+		margin-top: 90px;
+	}
+	.clock {
+			height: 300px;
+			width: 300px;
+			min-height: 300px;
+			min-width: 300px;
+		}
+	
+		.clock .number {
+			font-size: 1.5rem;
+			padding: 12px;
+		}
+	
+		.clock .bar_item {
+			font-size: 0.5rem;
+			padding: 5px;
+		}
+
+		.clock .hand.sec {
+			width: 2.5px;
+			height: 35%;
+			background-color: rgb(229, 209, 234);
+		}
+
+		.clock .hand.min {
+			width: 6px;
+			height: 35%;
+			background-color: rgb(97, 48, 229);
+			border: 1.5px solid rgb(248, 245, 248);
+		}
+
+		.clock .hand.hr {
+			width: 7px;
+			height: 25%;
+			background-color: rgb(97, 48, 229);
+			border: 1.5px solid rgb(248, 245, 248);
+		}
+		.alarm{
+			/* margin-top: -35px; */
+			margin-left: -10px;
+		}
+		.footer{
+			margin-top: px;
+			
+		}
+		.footer a{
+			font-size: 0.85 rem;
+		}
+}
+
+
+/* .text{
+	height:100px;
+	text-align: center;
+	color: white;
+} */
